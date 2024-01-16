@@ -57,12 +57,29 @@ function generatePassword() {
   let randomCharacters = '';   // "abcdefghijklmnopqrstuvwxyz0123456789"
 
   //#region Get user input
-  let length = prompt("password length: ");                 // 10
-  //try to get the password length to vaildate between 8 and 128 characters 
-  if (length.length >= 8 && length <= 128) {
-    prompt('good length')
-  } else if (length.length < 8 && length.length > 128) {
-    prompt('Password must be between 8 and 128 characters long')
+  // let passwordLength = prompt("Enter a password length between 8-128 characters gang gang ");                 // 10
+  // //try to get the password length to vaildate between 8 and 128 characters 
+  // if (passwordLength.length < 8 || passwordLength.length > 128) {
+  //   alert('Invalid password length. Please enter a value between 8 -128 characters ')
+  // } else if (passwordLength.length > 8 || passwordLength.length < 128) {
+  //   alert('Password must be between 8 and 128 characters long')
+  // }
+
+  var minLength = 8; // Minimum password length
+  var maxLength = 128; // Maximum password length
+
+  var passwordLength = 0;
+
+  while (passwordLength < minLength || passwordLength > maxLength) {
+    passwordLength = parseInt(prompt("Enter the desired password length gang gang (between " + minLength + " and " + maxLength + "):"));
+
+    if (isNaN(passwordLength)) {
+      alert("Invalid input. Please enter a number.");
+    } else if (passwordLength < minLength) {
+      alert("Password length is too short. Please enter a length of at least " + minLength + " characters.");
+    } else if (passwordLength > maxLength) {
+      alert("Password length is too long. Please enter a length of at most " + maxLength + " characters.");
+    }
   }
 
   let lowercase = confirm("do you want lowercase characters?");        // true
@@ -87,7 +104,7 @@ function generatePassword() {
   //#endregion
 
   // get random password
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     // do something
     passwordString += randomCharacters[Math.floor(Math.random() * randomCharacters.length)];     // t
   }
@@ -105,3 +122,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+//   passwordLength = parseInt(prompt("Enter the desired password length (between " + minLength + " and " + maxLength + "):"));

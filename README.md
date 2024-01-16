@@ -19,6 +19,6 @@ SO THAT I can create a strong password that provides greater security
 ![screen4](./Assets/Screenshot%202023-11-27%20at%2010.13.17 AM.png)
 
 ### Deployment 
-[live]( https://joshuabryantza.github.io/password-generator/)
+[live](https://joshuabryantza.github.io/password-generator/)
 
 
