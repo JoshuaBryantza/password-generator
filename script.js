@@ -70,7 +70,7 @@ function generatePassword() {
 
   var passwordLength = 0;
 
-  while (passwordLength < minLength) {
+  while (passwordLength < minLength || passwordLength > maxLength) {
     passwordLength = parseInt(prompt("Enter the desired password length gang gang (between " + minLength + " and " + maxLength + "):"));
 
     if (isNaN(passwordLength)) {
